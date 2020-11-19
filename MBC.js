@@ -3,7 +3,26 @@ function auto(marca, modelo, annio) {
     this.modelo = modelo;
     this.annio = annio;
 }
+function factory(MR) 
+    {   
+        if(cars[MR] === cars[0])
+        {
+            return "AUDI";
+        }
+        else if(cars[MR] === cars[1])
+        {
+            return "BMW";
+        }
+        else if(cars[MR] === cars[2])
+        {
+            return "FORD";
+        }
+        else
+        {
+            return "JEEP";
+        }
 
+    };
 var autos = [];
 var year_0 = 2016;
 var year_1 = 2021;
@@ -25,26 +44,7 @@ for(var i = 0; i < numero; i++)
     console.log(marca_random);
     var modelo_random = Math.floor(Math.random() * ((cars[marca_random].length + 1) - 0) + 0);
     console.log(modelo_random);
-    var marca = function() 
-    {   
-        if(cars[marca_random] === cars[0])
-        {
-            return "AUDI";
-        }
-        else if(cars[marca_random] === cars[1])
-        {
-            return "BMW";
-        }
-        else if(cars[marca_random] === cars[2])
-        {
-            return "FORD";
-        }
-        else
-        {
-            return "JEEP";
-        }
-
-    };
+    var marca = factory(marca_random);
     var modelo = cars[marca_random][modelo_random];
     var annio = Math.floor(Math.random() * ((year_1+1) - year_0) + year_0);
     autos.push(new auto(marca, modelo, annio));
